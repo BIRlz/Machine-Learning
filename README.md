@@ -11,4 +11,5 @@
 [2.1.1] 使用K-近邻算法改进约会网站的配对效果 <br/>
 [2.1.2] 手写识别系统
 ## 第三章　**决策树**
-[3.1] [ID3](https://github.com/BIRlz/Machine-Learning/blob/master/decisionTree/ID3decisionTree.py)
+[3.1] [ID3](https://github.com/BIRlz/Machine-Learning/blob/master/decisionTree/ID3decisionTree.py) <br/>
+[3.2] [C4.5](https://github.com/BIRlz/Machine-Learning/blob/master/decisionTree/C4-5DecisionTree.py)
