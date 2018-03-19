@@ -11,3 +11,6 @@
 ## 第三章　**决策树**
 [3.1] [ID3](https://github.com/BIRlz/Machine-Learning/blob/master/decisionTree/ID3decisionTree.py) <br/>
 [3.2] [C4.5](https://github.com/BIRlz/Machine-Learning/blob/master/decisionTree/C4-5DecisionTree.py)
+## 第四章　**判别分析**
+[3.1] [LDA](https://github.com/BIRlz/Machine-Learning/blob/master/discriminantAnalysis/LDA.py) <br/>
+[3.2] [byses]()
