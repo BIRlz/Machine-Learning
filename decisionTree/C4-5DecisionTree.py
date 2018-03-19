@@ -29,8 +29,8 @@ def bestSplitFeat(dataSet):
             splitInfo -= prob*log2(prob)
         infoGainRate = (expEnt - newEnt)/splitInfo
         #print(infoGainRate)
-        if infoGain > bestEntGain :
-            bestEntGain = infoGain
+        if infoGainRate > bestEntGain :
+            bestEntGain = infoGainRate
             bestFeat = i
     return bestFeat
   
