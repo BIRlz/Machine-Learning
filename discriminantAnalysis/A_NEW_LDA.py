@@ -15,9 +15,9 @@ def class_mean(dataSet,cls):
 
 def within_class_SW(cls,class_mean):
     m,n = cls.shape()
-    S_W = np.zeros(m,m)
+    S_W = np.zeros((m,m))
     for feat in cls:
-        
+        S_W += (feat)
 
 dataSet = [[1,2,1],[2,3,1],[3,4,2],[4,5,2]]
 print(class_mean(dataSet,1))   
