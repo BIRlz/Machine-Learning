@@ -22,10 +22,16 @@ def within_class_SW(cls,class_mean):
     return S_W
 
 def between_class_SW(dataSet,cls_list):
+    m = cls_list.shape(1)
+    all_mean = np.mean(dataSet,axis=0)
     cls_mean = []
+    S_B = np.zeros((m,m))
     for j in cls_list:
-        cls_mean.append(class_mean(dataSet,cls))
-    return np.mean(cls_mean)
+        n = j.shape[0]
+        j = j.reshape(4,1)
+        all_mean = all_mean.reshape(4,1)
+        S_B += n * (j - all_mean).dot(j - all_mean).T)
+    return S_B
                        
 dataSet = [[1,2,1],[2,3,1],[3,4,2],[4,5,2]]
 print(class_mean(dataSet,1))   
