@@ -11,19 +11,23 @@ from math import *
 import operator
 '''
     input:
-        [[property0,property1,property2,...,class]]
+        [[property0,property1,property2,...,class],
+        [...],
+        ...
+        [...]]
     output:
         tree
 '''
 
 # build dict for every feature
 def buildFeatDict(dataSet):
+    #return {cls1:a,cls2:b,cls3:c,...}
     currClass = {}
     for featVec in dataSet:
-        tmp = featVec[-1]
-        if tmp not in currClass.keys():
-            currClass[tmp] = 0
-        currClass[tmp] += 1
+        cls = featVec[-1]
+        if cls not in currClass.keys():
+            currClass[cls] = 0
+        currClass[cls] += 1
     return currClass
 # calculate shannoEnt
 def calcShannoEnt(dict):
@@ -31,12 +35,12 @@ def calcShannoEnt(dict):
     prob = 0.0
     shannoEnt = 0.0
     for key in dict:
-        tot += dict[key]
+        tot += dict[key]#Get the whole value of all the features
     for key in dict:
-        prob = float(dict[key]/tot)
-        shannoEnt -= log2(prob)*prob
+        prob = float(dict[key]/tot)#P(x)
+        shannoEnt -= log2(prob)*prob#ent = -log2(P(x))* P(x)
     return shannoEnt
-#calculate shannoEnt
+#calculate expShannoEnt
 def expShannoEnt(dataSet):
     dict = {}
     for featVex in dataSet:
@@ -44,7 +48,7 @@ def expShannoEnt(dataSet):
         expShannoEnt = calcShannoEnt(dict)
     return calcShannoEnt(dict)
     
-#calculate continual shannoEnt
+#Only a function to split the dataSet
 def splitFeat(dataSet,axis,value):
     resDataSet = []
     for featVec in dataSet:
