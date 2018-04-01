@@ -49,7 +49,7 @@ def expShannoEnt(dataSet):
     return calcShannoEnt(dict)
     
 #Only a function to split the dataSet
-def splitFeat(dataSet,axis,value):
+def splitFeat(dataSet,index,value):
     resDataSet = []
     for featVec in dataSet:
         if featVec[axis] == value:
@@ -57,19 +57,20 @@ def splitFeat(dataSet,axis,value):
             tmp.extend(featVec[axis+1:])
             resDataSet.append(tmp)
     return resDataSet
-#only a single layer
-def bestSplitFeat(dataSet):
+
+#on a single layer
+def bestFeat(dataSet):
     numFeature = len(dataSet[0])-1
     expEnt = expShannoEnt(dataSet)
     tmpDataSet = []
     bestEntGain = 0.0
-    bestFeat = -1
+    bestFeat = 0
     for i in range(numFeature):
-        featList = [feat[i] for feat in dataSet]#for every feature in dataSet[i] build a list
-        uniqueVals = set(featList)#get all the value in current list
+        featList = [feat[i] for feat in dataSet]# build a list for every feature in dataSet[i]
+        vals = set(featList)#get all the value in current list
         #print(featList)
         newEnt = 0.0
-        for value in uniqueVals:
+        for value in vals:
             subDataSet = splitFeat(dataSet,i,value)#split the current feature to calc the infoGain
             prob = len(subDataSet)/float(len(dataSet))
             newEnt += prob*calcShannoEnt(buildFeatDict(subDataSet))
